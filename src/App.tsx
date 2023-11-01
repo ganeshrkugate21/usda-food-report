@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { BasicReport, FavouriteList, FoodSearch } from "./usda_nutrition";
 
-function App() {
+export const App = () => {
+  const navigate = useNavigate();
+
+  const handleFavourite = () => {
+    navigate("/favotite-food");
+  };
   return (
-    <div className="App">
+    <>
+      <div className="App"></div>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 className="content"> USDA Food Nutrition App </h1>
+        <button className="favorite-button" onClick={handleFavourite}>
+          Favourite Food
+        </button>
+        <div>
+          <Routes>
+            <Route path="/" element={<FoodSearch />} />
+            <Route path="/basic-report/:fdcId" element={<BasicReport />} />
+            <Route path="/favotite-food" element={<FavouriteList />} />
+          </Routes>
+        </div>
       </header>
-    </div>
+    </>
   );
-}
-
-export default App;
+};

@@ -1,0 +1,14 @@
+.titleColor {
+  color: green;
+}
+
+.headingColor {
+  color: red;
+}
+
+.content {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
